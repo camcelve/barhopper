@@ -1,4 +1,9 @@
 Barhopper::Application.routes.draw do
+  
+  resources :deals
+
+
+  root to: 'deals#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
