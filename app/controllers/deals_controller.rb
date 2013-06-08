@@ -3,7 +3,9 @@ class DealsController < ApplicationController
   # GET /deals.json
   def index
     @deals = Deal.all
-
+    @featured = Deal.where(featured: true)
+    @regular = Deal.where(featured: false)
+    @businesses = Business.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @deals }
@@ -41,10 +43,10 @@ class DealsController < ApplicationController
   # POST /deals.json
   def create
     @deal = Deal.new(params[:deal])
-
+    @deal.business_id = current_business.id
     respond_to do |format|
       if @deal.save
-        format.html { redirect_to @deal, notice: 'Deal was successfully created.' }
+        format.html { redirect_to business_path(@deal.business), notice: 'Deal was successfully created.' }
         format.json { render json: @deal, status: :created, location: @deal }
       else
         format.html { render action: "new" }

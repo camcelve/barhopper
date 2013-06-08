@@ -1,0 +1,8 @@
+<div class="business-profile">	
+	<h3><%= current_business.name %>'s Profile</h3>
+	<%= image_tag @business.image.url, class: "fuck" %>
+	<% @business.deals.each do |deal| %>
+		<div class="well top-margin"><%= deal.description %></div>
+	<% end %>
+	<%= link_to 'Add New Deal', new_deal_path, class: "btn btn-primary" %>
+</div>

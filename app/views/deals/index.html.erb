@@ -1,27 +1,28 @@
-<h1>Listing deals</h1>
+<h1>Deals</h1>
 
-<table>
-  <tr>
-    <th>Description</th>
-    <th>Picture</th>
-    <th>Featured</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @deals.each do |deal| %>
-  <tr>
-    <td><%= deal.description %></td>
-    <td><%= deal.picture %></td>
-    <td><%= deal.featured %></td>
-    <td><%= link_to 'Show', deal %></td>
-    <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-    <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% @featured.each do |feature| %>
+	<div class="featured-deal">
+		<p>feature.description</p>
+	</div>
 <% end %>
-</table>
+<br/>
 
-<br />
+<% @businesses.each do |business| %>
+<div class="business-listing well">
+	<h3><%= business.name %></h3>
+	<p>Phone Number: <%= business.phone_number %></p>
+	<%= image_tag business.image.url %>
+	<% business.deals.each do |deal| %>
+		<% if !deal.featured %>
+		  <div class="deal"> 
+		    <%= deal.description %>
+		    <%= deal.picture %>
+		  </div>
+		<% end %>
+	<% end %>
+</div>
+<% end %>
 
-<%= link_to 'New Deal', new_deal_path %>
+<% if business_logged_in? %>
+	<%= link_to 'New Deal', new_deal_path %>
+<% end %>

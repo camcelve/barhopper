@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs" id="my-nav">
+ <% if logged_in? %>
+  <li>
+  	<%= link_to "Deals", deals_path %>
+  </li>
+  <li>
+    <%= link_to "Favorites", deals_path %>
+  </li>
+  <li>
+    <%= link_to "Mine", deals_path %>
+  </li>
+ <% else %>
+  <li>
+    <%= link_to "Deals", deals_path %>
+  </li>
+ <% end %>
+</ul>

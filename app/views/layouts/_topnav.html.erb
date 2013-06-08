@@ -1,0 +1,24 @@
+<ul class="nav pull-right">
+ <% if !logged_in? && !business_logged_in? %>
+  <li>
+    <%= link_to 'Login', login_path %>
+  </li>
+  <li>
+    <%= link_to 'Biz Login', businesslogin_path %>
+  </li>
+<% elsif logged_in? %>
+  <li>
+    <%= link_to "#{current_user.name}" %>
+  </li>
+  <li>
+  	<%= link_to 'Logout', logout_path %>
+  </li>
+ <% else %>
+  <li>
+    <%= link_to "#{current_business.name}" %>
+  </li>
+  <li>
+    <%= link_to 'Biz Logout', businesslogout_path %>
+  </li>
+ <% end %>
+</ul>
