@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609021206) do
+ActiveRecord::Schema.define(:version => 20130609071321) do
 
   create_table "businesses", :force => true do |t|
     t.string   "email"
@@ -31,10 +31,17 @@ ActiveRecord::Schema.define(:version => 20130609021206) do
     t.text     "description"
     t.string   "picture"
     t.boolean  "featured"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "business_id"
     t.boolean  "waspurchased"
+    t.boolean  "redeemable"
+    t.time     "starts_at"
+    t.time     "ends_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "user_businesses", :force => true do |t|

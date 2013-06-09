@@ -16,12 +16,26 @@
     <%= f.text_area :description, rows: "4" %>
   </div>
   <div class="field">
-    <%= f.label :picture %>
-    <%= f.text_field :picture %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :featured %>
     <%= f.check_box :featured %>
+  </div>
+  <div class="field">
+    <%= f.label :redeemable %>
+    <%= f.check_box :redeemable %>
+  </div>
+  <div class="field">
+   <%= f.label :starts_at, "Day to begin running the deal" %>
+   <%= f.date_select :starts_at %>
+   <%= f.label :starts_at, "Time to start on" %>
+   <%= f.time_select :starts_at, :ignore_date => true %>
+   <%= f.label :ends_at, "Day to end the deal" %>
+   <%= f.date_select :ends_at %>
+   <%= f.label :ends_at, "Time to end on" %>
+   <%= f.time_select :ends_at, :ignore_date => true %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>

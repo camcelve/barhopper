@@ -7,6 +7,8 @@ Barhopper::Application.routes.draw do
     end
     member do
       post 'bookmark'
+      get 'redeem'
+      post 'redeem', to: 'deals#final_redeem'
     end
   end
   

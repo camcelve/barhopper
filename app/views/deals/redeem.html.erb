@@ -1,0 +1,15 @@
+<h3>Redeem Page</h3>
+<div class="business">
+	<p><%= @business.name %></p>
+	<p>Phone Number: <%= @business.phone_number %></p>
+	<p>Address: <%= @business.address %></p>
+	<%= link_to "Favorite", favorite_business_path(id: @business.id), method: 'post' %>
+	<%= image_tag @business.image.url %>
+</div>
+<div class="deal deal-right">
+	<p><%= @deal.description %></p>
+	<%= image_tag @deal.image.url %>
+	 <%= link_to "Bookmark", bookmark_deal_path(id: @deal.id), method: 'post' %>
+		<p>Ends <%= @deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= @deal.ends_at.hour %></p>
+	<p><%= link_to "GET THIS DEAL", redeem_deal_path(@deal), method: 'post', class: "btn" %></p>
+</div>

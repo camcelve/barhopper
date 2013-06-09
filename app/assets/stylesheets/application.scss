@@ -16,6 +16,7 @@
 
 @import "bootstrap";
 
+>>>>>>> upstream/master
 
 .container {
 	width: 80%;
@@ -174,6 +175,10 @@ h3 a:visited {
 	border-radius: 60em;
 }
 
+.business-listing a:visited {
+	color: black;
+}
+
 .fuck {
 	margin-bottom: 20px;
 }
@@ -186,7 +191,12 @@ h3 a:visited {
 	padding-top: 0;
 }
 
-.deal {
+.business {
+	width: 45%;
+	display: inline-block;
+}
+
+.deal-right {
 	float: right;
-	clear: both;
+	width:45%
 }
