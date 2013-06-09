@@ -19,25 +19,28 @@
 
 <h2 >Today's Deals</h2>
 <% @businesses.each do |business| %>
-<div class="business-listing well">
+<div class="business-listing well container-fluid">
 	<h3 class="body-font"><%= link_to "#{business.name}", business_path(business) %></h3>
-	<%= image_tag business.image.url, class: 'business-image'  %>
+	<%= image_tag business.image.url, class: 'business-image featured-image'  %>
 	<p class="body-font phone">   Phone Number: <%= business.phone_number %></p>
+
 	<address class="body-font address">   Address: <%= business.address %></address>
-	<i class="icon-star"></i>
-	<%= link_to "Favorite", favorite_business_path(id: business.id), method: 'post', class: 'body-font' %>
-	<% business.deals.each do |deal| %>
-		<% if !deal.featured %>
-		  <div class="deal"> 
-		    <%= deal.description %>
-		    <%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
-		    <% if deal.redeemable %>
-		    	<%= link_to "Redeem", redeem_deal_path(deal), class: 'btn'%>
-		    <% end %>
-		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
-		  </div>
+		<i class="icon-star"></i>
+	<%= link_to "Favorite", favorite_business_path(id: business.id), method: 'post', class: 'body-font favorite' %>
+	<div class="deal-group">
+		<% business.deals.each do |deal| %>
+			<% if !deal.featured %>
+			  <div class="deal deal-right deals container-fluid">
+			    <%= deal.description %>
+			    <%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
+			    <% if deal.redeemable %>
+			    	<%= link_to "Redeem", redeem_deal_path(deal), class: 'btn'%>
+			    <% end %>
+			    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
+			  </div>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 </div>
 <% end %>
 

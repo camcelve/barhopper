@@ -1,11 +1,11 @@
-<h3 class="page-header">Favorites</h3>
+<h3 class="page-header">Your Favorites</h3>
 
 <% @businesses.each do |business| %>
 <div class="business-listing well">
 	<h3><%= business.name %></h3>
 	<p>Phone Number: <%= business.phone_number %></p>
 	<p>Address: <%= business.address %></p>
-	<%= image_tag business.image.url %>
+	<%= image_tag business.image.url, class: 'business-image' %>
 	<% business.deals.each do |deal| %>
 		  <div class="deal"> 
 		    <%= deal.description %>

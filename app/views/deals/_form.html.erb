@@ -10,24 +10,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="well">
+  <div class="field business-listing">
     <%= f.label :description %>
     <%= f.text_area :description, rows: "4" %>
   </div>
-  <div class="field">
+  <div class="field business-listing">
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
-  <div class="field">
+  <div class="field business-listing">
     <%= f.label :featured %>
     <%= f.check_box :featured %>
   </div>
-  <div class="field">
+  <div class="field business-listing">
     <%= f.label :redeemable %>
     <%= f.check_box :redeemable %>
   </div>
-  <div class="field">
+  <div class="field business-listing">
    <%= f.label :starts_at, "Day to begin running the deal" %>
    <%= f.date_select :starts_at %>
    <%= f.label :starts_at, "Time to start on" %>
@@ -37,7 +37,8 @@
    <%= f.label :ends_at, "Time to end on" %>
    <%= f.time_select :ends_at, :ignore_date => true %>
   </div>
-  <div class="actions">
+  <div class="actions business-listing">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
