@@ -2,6 +2,8 @@ class Business < ActiveRecord::Base
   attr_accessible :email, :name, :password_digest, :phone_number, :image, :password
 
   has_many :deals
+  has_many :user_businesses
+  has_many :users, through: :user_businesses
 
   has_secure_password
 

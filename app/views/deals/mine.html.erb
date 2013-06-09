@@ -1,0 +1,18 @@
+<h3>Mine</h3>
+<h4 class="page-header">Prepaid</h4>
+<% @purchased_deals.each do |deal| %>
+	<div class="deal"> 
+		    <%= deal.description %>
+		    <%= deal.picture %>
+		    <%= link_to "Bookmark", bookmark_deal_path(deal), method: 'post' %>
+	</div>
+<% end %>
+
+<h4 class="page-header">Bookmarked</h4>
+<% @bookmarked_deals.each do |deal| %>
+	<div class="deal"> 
+		    <%= deal.description %>
+		    <%= deal.picture %>
+		    <%= link_to "Bookmark", bookmark_deal_path(deal), method: 'post' %>
+	</div>
+<% end %>

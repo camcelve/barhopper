@@ -1,0 +1,16 @@
+<h3>Favorites</h3>
+
+<% @businesses.each do |business| %>
+<div class="business-listing well">
+	<h3><%= business.name %></h3>
+	<p>Phone Number: <%= business.phone_number %></p>
+	<p>Address: <%= business.address %></p>
+	<%= image_tag business.image.url %>
+	<% business.deals.each do |deal| %>
+		  <div class="deal"> 
+		    <%= deal.description %>
+		    <%= deal.picture %>
+		  </div>
+	<% end %>
+</div>
+<% end %>

@@ -82,4 +82,24 @@ class DealsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def favorites
+    @businesses = current_user.businesses
+  end
+
+  def mine
+    @purchased_deals = current_user.deals.where(waspurchased: true)
+    @bookmarked_deals = current_user.deals.where(waspurchased: false)
+  end
+
+  def bookmark
+    deal = Deal.find(params[:id])
+    if !current_user.deals.include? deal
+      deal.update_attributes(waspurchased: false)
+      current_user.deals << deal
+    else
+      current_user.deals.delete deal
+    end
+    redirect_to mine_deals_path
+  end
 end

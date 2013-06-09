@@ -1,8 +1,23 @@
 Barhopper::Application.routes.draw do
   
-  resources :deals
+  resources :deals do
+    collection do
+      get 'favorites'
+      get 'mine'
+    end
+    member do
+      post 'bookmark'
+    end
+  end
+  
+
   resources :users
-  resources :businesses
+  
+  resources :businesses do
+    member do
+      post 'favorite'
+    end
+  end
 
   get 'businesslogin', to: 'bsessions#new'
   post 'businesslogin', to: 'bsessions#create'
@@ -11,6 +26,8 @@ Barhopper::Application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
+
+  get 'home', to: 'pages#home'
 
   root to: 'deals#index'
   # The priority is based upon order of creation:

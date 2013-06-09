@@ -1,5 +1,5 @@
 <div class="business-profile">	
-	<h3><%= current_business.name %>'s Profile</h3>
+	<h3><%= @business.name %></h3>
 	<%= image_tag @business.image.url, class: "fuck" %>
 	<% @business.deals.each do |deal| %>
 		<div class="well top-margin"><%= deal.description %></div>

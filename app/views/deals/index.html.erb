@@ -1,22 +1,27 @@
-<h1>Deals</h1>
 
+
+<h2 class="page-header">Featured Deals</h2>
 <% @featured.each do |feature| %>
 	<div class="featured-deal">
-		<p>feature.description</p>
+		<p><%= feature.description %></p>
 	</div>
 <% end %>
 <br/>
 
+<h2>Deals</h2>
 <% @businesses.each do |business| %>
 <div class="business-listing well">
-	<h3><%= business.name %></h3>
+	<h3><%= link_to "#{business.name}", business_path(business) %></h3>
 	<p>Phone Number: <%= business.phone_number %></p>
+	<p>Address: <%= business.address %></p>
+	<%= link_to "Favorite", favorite_business_path(id: business.id), method: 'post' %>
 	<%= image_tag business.image.url %>
 	<% business.deals.each do |deal| %>
 		<% if !deal.featured %>
 		  <div class="deal"> 
 		    <%= deal.description %>
 		    <%= deal.picture %>
+		    <%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
 		  </div>
 		<% end %>
 	<% end %>

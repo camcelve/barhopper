@@ -33,4 +33,14 @@ def update
 	end
 end
 
+def favorite
+	business = Business.find(params[:id])
+	if !current_user.businesses.include? business
+		current_user.businesses << business
+	else
+		current_user.businesses.delete business
+	end
+	redirect_to deals_path
+end
+
 end
