@@ -4,7 +4,7 @@
 	<div class="deal well"> 
 		    <%= deal.description %>
 		    <%= image_tag deal.image.url %>
-		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
+		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.to_time.strftime("%I:%M %P") %></span>
 	</div>
 <% end %>
 
@@ -14,6 +14,6 @@
 		    <%= deal.description %>
 		    <%= image_tag deal.image.url %>
 		    <%= link_to "Bookmark", bookmark_deal_path(deal), method: 'post' %>
-		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
+		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.to_time.strftime("%I:%M %P") %></span>
 	</div>
 <% end %>

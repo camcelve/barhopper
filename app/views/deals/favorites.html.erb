@@ -6,15 +6,20 @@
 	<p>Phone Number: <%= business.phone_number %></p>
 	<p>Address: <%= business.address %></p>
 	<%= image_tag business.image.url, class: 'business-image' %>
-	<% business.deals.each do |deal| %>
-		  <div class="deal"> 
-		    <%= deal.description %>
-		  	<%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
-		    <% if deal.redeemable %>
-		    	<%= link_to "Redeem", redeem_deal_path(deal), class: 'btn'%>
-		    <% end %>
-		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
-		  </div>
-	<% end %>
+	<div class="deal-group">
+		<h3>Today's Deals</h3>
+		<% business.deals.each do |deal| %>
+			  <div class="deal deal-right deals container-fluid"> 
+			    <%= deal.description %>
+			  	<%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
+			    <p>
+			    <% if deal.redeemable %>
+			    	<%= link_to "Redeem", redeem_deal_path(deal), class: 'btn'%>
+			    <% end %>
+			    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.to_time.strftime("%I:%M %P") %></span>
+			    </p>
+			  </div>
+		<% end %>
+	</div>
 </div>
 <% end %>

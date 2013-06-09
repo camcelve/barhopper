@@ -78,6 +78,7 @@
     transition: background 0.5s linear;
 	font-family: 'Raleway', sans-serif;
 	font-size: 32px;
+	margin: 0 auto;
 }
 
 .featured-deal:hover {
@@ -110,7 +111,7 @@ h3 a:visited {
 }
 
 .deals {
-	margin-top: 4%;
+	margin-top: 2%;
 	width: 30%;
 	float: right;
 	clear: both;
@@ -118,13 +119,20 @@ h3 a:visited {
 	border: solid 1px rgba(0, 255, 255, 0.80);
 	background-color: rgba(0, 255, 255, 0.80);
 	border-radius: 8px;
+}
 
+.deal span {
+	font-size: 0.85em;
 }
 
 .deal-group {
 	position: absolute;
-	top: 12%;
-	right: 2%;
+	top: 9%;
+	right: 4%;
+}
+
+.deal-group h3 {
+	float:right;
 }
 
 .deal {
@@ -135,7 +143,7 @@ h3 a:visited {
 
 .deal-right {
 	float: right;
-	width:45%;
+	width:70%;
 }
 
 .business-image {
