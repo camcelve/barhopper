@@ -3,7 +3,15 @@
 <h2 class="page-header">Featured Deals</h2>
 <% @featured.each do |feature| %>
 	<div class="featured-deal">
-		<p><%= feature.description %></p>
+		<p>
+			<%= feature.description %>
+			<%= image_tag feature.image.url %>
+			<%= link_to "Bookmark", bookmark_deal_path(id: feature.id), method: 'post' %>
+			<% if feature.redeemable %>
+			  <%= link_to "Redeem", redeem_deal_path(feature), class: 'btn'%>
+			<% end %>
+			<span>Ends <%= feature.ends_at.to_date.strftime("%B %d, %Y") %> at <%= feature.ends_at.hour %></span>
+		</p>
 	</div>
 <% end %>
 <br/>
@@ -20,8 +28,11 @@
 		<% if !deal.featured %>
 		  <div class="deal"> 
 		    <%= deal.description %>
-		    <%= deal.picture %>
 		    <%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
+		    <% if deal.redeemable %>
+		    	<%= link_to "Redeem", redeem_deal_path(deal), class: 'btn'%>
+		    <% end %>
+		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
 		  </div>
 		<% end %>
 	<% end %>

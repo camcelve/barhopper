@@ -3,8 +3,8 @@
 <% @purchased_deals.each do |deal| %>
 	<div class="deal"> 
 		    <%= deal.description %>
-		    <%= deal.picture %>
-		    <%= link_to "Bookmark", bookmark_deal_path(deal), method: 'post' %>
+		    <%= image_tag deal.image.url %>
+		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
 	</div>
 <% end %>
 
@@ -12,7 +12,8 @@
 <% @bookmarked_deals.each do |deal| %>
 	<div class="deal"> 
 		    <%= deal.description %>
-		    <%= deal.picture %>
+		    <%= image_tag deal.image.url %>
 		    <%= link_to "Bookmark", bookmark_deal_path(deal), method: 'post' %>
+		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
 	</div>
 <% end %>

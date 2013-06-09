@@ -1,5 +1,5 @@
 class Business < ActiveRecord::Base
-  attr_accessible :email, :name, :password_digest, :phone_number, :image, :password
+  attr_accessible :email, :name, :password_digest, :phone_number, :image, :password, :address
 
   has_many :deals
   has_many :user_businesses

@@ -14,6 +14,12 @@
 
 @import "bootstrap";
 
+#main {
+
+}
+
+
+
 .container {
 	width: 80%;
 	margin-top: 40px;
@@ -22,6 +28,10 @@
 
 .container a:visited {
 	color:white;
+}
+
+.business-listing a:visited {
+	color: black;
 }
 
 .fuck {
@@ -36,7 +46,12 @@
 	padding-top: 0;
 }
 
-.deal {
+.business {
+	width: 45%;
+	display: inline-block;
+}
+
+.deal-right {
 	float: right;
-	clear: both;
+	width:45%
 }

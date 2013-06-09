@@ -9,7 +9,11 @@
 	<% business.deals.each do |deal| %>
 		  <div class="deal"> 
 		    <%= deal.description %>
-		    <%= deal.picture %>
+		  	<%= link_to "Bookmark", bookmark_deal_path(id: deal.id), method: 'post' %>
+		    <% if deal.redeemable %>
+		    	<%= link_to "Redeem", redeem_deal_path(deal), class: 'btn'%>
+		    <% end %>
+		    <span>Ends <%= deal.ends_at.to_date.strftime("%B %d, %Y") %> at <%= deal.ends_at.hour %></span>
 		  </div>
 	<% end %>
 </div>

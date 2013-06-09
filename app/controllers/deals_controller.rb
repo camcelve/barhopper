@@ -102,4 +102,16 @@ class DealsController < ApplicationController
     end
     redirect_to mine_deals_path
   end
+
+  def redeem
+    @deal = Deal.find(params[:id])
+    @business = @deal.business
+  end
+
+  def final_redeem
+    deal = Deal.find(params[:id])
+    deal.update_attributes(waspurchased: true)
+    current_user.deals << deal
+    redirect_to mine_deals_path
+  end
 end
