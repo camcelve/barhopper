@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20130609021206) do
     t.integer  "deal_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.boolean  "purchased"
   end
 
   create_table "users", :force => true do |t|

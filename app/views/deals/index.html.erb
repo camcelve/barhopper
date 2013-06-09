@@ -8,14 +8,16 @@
 <% end %>
 <br/>
 
-<h2>Deals</h2>
+
+<h2 >Today's Deals</h2>
 <% @businesses.each do |business| %>
 <div class="business-listing well">
-	<h3><%= link_to "#{business.name}", business_path(business) %></h3>
-	<p>Phone Number: <%= business.phone_number %></p>
-	<p>Address: <%= business.address %></p>
-	<%= link_to "Favorite", favorite_business_path(id: business.id), method: 'post' %>
-	<%= image_tag business.image.url %>
+	<h3 class="body-font"><%= link_to "#{business.name}", business_path(business) %></h3>
+	<%= image_tag business.image.url, class: 'business-image'  %>
+	<p class="body-font phone">   Phone Number: <%= business.phone_number %></p>
+	<address class="body-font address">   Address: <%= business.address %></address>
+	<i class="icon-star"></i>
+	<%= link_to "Favorite", favorite_business_path(id: business.id), method: 'post', class: 'body-font' %>
 	<% business.deals.each do |deal| %>
 		<% if !deal.featured %>
 		  <div class="deal"> 
